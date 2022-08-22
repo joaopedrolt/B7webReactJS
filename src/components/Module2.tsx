@@ -143,3 +143,19 @@ export const ListComponent = ({listPerson}: Data) => {
 
 }
 
+export const ConditionalRender = () => {
+    
+    let [show, setShow] = useState(false);
+
+    const switchButton = () => {
+        show ? setShow(false) : setShow(true);
+    }
+
+    return (
+        <div>
+            <button onClick={switchButton}>Exibir</button>
+            {show == true && <h1>Oi</h1>}
+        </div>
+    );
+}
+
