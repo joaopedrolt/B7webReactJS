@@ -1,2 +1,2 @@
 # B7webReactJS
-Execícios do Curso B7web
+Execícios do Curso B7web.
