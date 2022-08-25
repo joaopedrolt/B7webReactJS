@@ -29,7 +29,8 @@ const App = () => {
                                   {name: "Joao Lima", age: 15}]} /> 
       <Module3.ButtonStyledProps small>Bottao Styled props Pequeno</Module3.ButtonStyledProps>
       <Module3.ButtonStyledProps large>Bottao Styled props Grande</Module3.ButtonStyledProps>    
-      <Module3.ButtonStyledProps >Bottao Styled Padrao</Module3.ButtonStyledProps>              
+      <Module3.ButtonStyledProps >Bottao Styled Padrao</Module3.ButtonStyledProps>
+      <div className="bg-blue-900 text-white font-bold rounded">Estilizado com TailWindCss</div>   
     </div>
   );
 }
