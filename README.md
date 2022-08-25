@@ -1,2 +1,2 @@
 # B7webReactJS
-Execícios do Curso B7web.
+Pratica de ReactJS seguindo o curso B7web. Tecnologias Usadas: NodeJS, ReactJS, Vite, Typescript, Styled-Components e Tailwindcss.
