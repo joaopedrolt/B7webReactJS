@@ -20,11 +20,16 @@ const App = () => {
       </ChildrenComponent>
       <FunctionProps fprops={functionProps}/>
       <Module3.CssInline />
-      <Module3.DivStyledC>Componente criado usando Styled Components</Module3.DivStyledC>
+      <Module3.DivStyledC>Componente criado usando Styled Components <br/>
+        <a href="https://www.google.com" className="childrenStyled">Css do filho editado no component</a>
+      </Module3.DivStyledC>
       <ListComponent listPerson={[{name: "Joao Carlos", age: 12}, 
                                   {name: "Joao Lucas", age: 13}, 
                                   {name: "Joao Henrique", age: 14}, 
-                                  {name: "Joao Lima", age: 15}]} />
+                                  {name: "Joao Lima", age: 15}]} /> 
+      <Module3.ButtonStyledProps small>Bottao Styled props Pequeno</Module3.ButtonStyledProps>
+      <Module3.ButtonStyledProps large>Bottao Styled props Grande</Module3.ButtonStyledProps>    
+      <Module3.ButtonStyledProps >Bottao Styled Padrao</Module3.ButtonStyledProps>              
     </div>
   );
 }

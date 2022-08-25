@@ -7,11 +7,31 @@ type Props = {
     bgColor: string;
 }
 
-
-export const DivStyledC = styled.h1`
+export const DivStyledC = styled.div`
     background-color: blue;
     color: white;
     padding: 20px;
+    
+    .childrenStyled{
+        background-color: white;
+    }
+
+    a{
+        color: black;
+
+        &:hover{
+            background-color: green;
+        }
+    }
+`;
+
+type ButtonSize = {
+    small?: boolean;
+    large?: boolean;
+}
+
+export const ButtonStyledProps = styled.button<ButtonSize>`
+    padding: ${props => props.small ? "15px" : props.large ? "40px" : "20px"};
 `;
 
 export const CssInline = () => {
