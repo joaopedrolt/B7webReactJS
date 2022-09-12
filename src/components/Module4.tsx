@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Posts } from "../types/Posts";
 
 export const UseEffectForm = () => {
 
@@ -17,7 +18,86 @@ export const UseEffectForm = () => {
         <div>
             <button onClick={handleClick}>Clique para gerar um numero aleatorio</button>
             <div>{number}</div>
-            <div>{"UseEffect " + (status==false ? "não detectou mudança" : "detectou mudança")}</div>
+            <div>{"UseEffect " + (status == false ? "não detectou mudança" : "detectou mudança")}</div>
+        </div>
+    );
+}
+
+export const GetJsonApi = () => {
+
+    let [posts, setPosts] = useState<Posts[]>([]);
+    let [loading, setLoadStatus] = useState(false);
+
+    const Get = async () => {
+        try {
+            setLoadStatus(true);
+            let response = await fetch('https://jsonplaceholder.typicode.com/posts')
+            let json = await response.json();
+            setPosts(json);
+            setLoadStatus(false);
+        } catch (error) {
+            alert("Nao foi possivel carregar tente mais tarde");
+            setLoadStatus(false);
+        }
+    };
+
+    return (
+        <div>
+            <button onClick={Get}>Carregar Posts</button>
+            {loading &&
+                <div>Carregando Posts...</div>
+            }
+
+            {!loading &&
+                <div className="posts">
+                    {posts.map((item, index) => (
+                        <div className="post" key={index}>
+                            <div>{item.id}</div>
+                            <div>{item.title}</div>
+                            <div>{item.body}</div>
+                        </div>
+                    ))}
+                </div>}
+        </div>
+    );
+}
+
+export const PostJsonApi = () => {
+
+    let [title, setTitle] = useState("");
+    let [body, setBody] = useState("");
+
+    const InputTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.target.value);
+    };
+
+    const InputBody = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setBody(e.target.value);
+    };
+
+    const Post = async () => {
+        try {
+            let response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: "Post",
+                body: JSON.stringify({
+                    title,
+                    body,
+                    userId: 1
+                },
+                headers )
+            })
+        } catch (error) {
+
+        }
+    };
+
+    return (
+        <div>
+            <fieldset>
+                <legend>Post Api</legend>
+                <input value={title} type="text" onChange={InputTitle} />
+                <textarea value={body} onChange={InputBody} />
+            </fieldset>
         </div>
     );
 }

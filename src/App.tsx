@@ -33,6 +33,7 @@ const App = () => {
       <Module3.ButtonStyledProps >Bottao Styled Padrao</Module3.ButtonStyledProps>
       <div className="bg-blue-900 text-white font-bold rounded">Estilizado com TailWindCss</div>
       <Module4.UseEffectForm />
+      <Module4.GetJsonApi />
     </div>
   );
 }
