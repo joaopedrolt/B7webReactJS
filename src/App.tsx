@@ -34,6 +34,7 @@ const App = () => {
       <div className="bg-blue-900 text-white font-bold rounded">Estilizado com TailWindCss</div>
       <Module4.UseEffectForm />
       <Module4.GetJsonApi />
+      <Module4.PostJsonApi />
     </div>
   );
 }

@@ -76,27 +76,31 @@ export const PostJsonApi = () => {
     };
 
     const Post = async () => {
-        try {
+        if (title && body) {
             let response = await fetch('https://jsonplaceholder.typicode.com/posts', {
                 method: "Post",
-                body: JSON.stringify({
-                    title,
-                    body,
-                    userId: 1
-                },
-                headers )
+                body: JSON.stringify({ title, body, userId: 1 }),
+                headers: { 'Content-Type': 'application/json' }
             })
-        } catch (error) {
-
+            let json = await response.json();
+            if (json.id) {
+                alert('Adicionado! Verifique o payload')
+            } else {
+                alert('Nao foi adcionado!')
+            }
+        } else {
+            alert('Preencha todos os campos!')
         }
+
     };
 
     return (
         <div>
-            <fieldset>
+            <fieldset className="flex flex-col border-2">
                 <legend>Post Api</legend>
-                <input value={title} type="text" onChange={InputTitle} />
-                <textarea value={body} onChange={InputBody} />
+                <input value={title} type="text" onChange={InputTitle} placeholder='Titulo' />
+                <textarea className="mt-4" value={body} onChange={InputBody} placeholder='Body' />
+                <button onClick={Post}>Enviar Post</button>
             </fieldset>
         </div>
     );
