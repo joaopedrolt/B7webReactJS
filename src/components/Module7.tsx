@@ -1,0 +1,58 @@
+import { Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+
+export const Module7 = () => {
+
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate('/');
+    }
+
+    return (
+        <>
+            <div> Elemento no path /modulo7</div>
+            <button onClick={handleClick}>Home</button>
+        </>
+    );
+
+}
+
+export const Home = () => {
+
+    return (
+        <>
+            <div>Elemento no path /</div>
+            <ul>
+                <li><Link to={"/modulo7"}>Modulo7</Link></li>
+            </ul>
+        </>
+    );
+
+}
+
+export const Slug = () => {
+
+    const params = useParams();
+
+    return (
+        <div>Slug passsada na rota = {params.slug}</div>
+    );
+
+}
+
+export const NotFound = () => {
+
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(-1);
+    }
+
+    return (
+        <>
+            <div>/404</div>
+            <button onClick={handleClick}>Voltar</button>
+        </>
+    );
+}
