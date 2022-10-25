@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 
 export const Module7 = () => {
 
@@ -51,8 +51,33 @@ export const NotFound = () => {
 
     return (
         <>
-            <div>/404</div>
+            <div>/404 - Nao encontrado ou sem permissao para visualizar</div>
             <button onClick={handleClick}>Voltar</button>
         </>
+    );
+}
+
+export const QuerryString = () => {
+
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    return (
+        <>
+            <div>Querry String Senha</div>
+            <div>{searchParams.get('pass')}</div>
+            <button>Voltar</button>
+        </>
+    );
+}
+
+export const Dashboard = () => {
+    return (
+        <div>Voce tem permissao para ver essa tela</div>
+    );
+}
+
+export const RouteHook = () => {
+    return (
+        <div>Renderizado pelo hook de rotas</div>
     );
 }

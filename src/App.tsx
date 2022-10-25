@@ -3,8 +3,8 @@ import { Expressions, Nojsx, ImportInfo, ClassProps, FragmentComponent, Children
 import { EventComponent, Counter, InputState, ExInputState, FunctionProps, ListComponent, ConditionalRender } from "./components/Module2";
 import * as Module3 from "./components/Module3";
 import * as Module4 from "./components/Module4";
-import * as Module7 from "./components/Module7";
-import { Routes, Route } from 'react-router-dom'
+import { RoutesList } from "./routes/MainRoutes";
+import { UseRoutesHook } from "./routes/UseRoutes";
 
 type Server = {
   model: string;
@@ -25,6 +25,8 @@ const App = () => {
 
   return (
     <div>
+      <RoutesList />
+      <UseRoutesHook />
       <ChildrenComponent>
         <div>Div Criada como Children</div>
       </ChildrenComponent>
@@ -43,12 +45,6 @@ const App = () => {
       <div className="bg-blue-900 text-white font-bold rounded">Estilizado com TailWindCss</div>
       <Module4.UseEffectForm />
       <Module4.ApiJson />
-      <Routes>
-        <Route path="/modulo7" element={<Module7.Module7 />}></Route>
-        <Route path="/" element={<Module7.Home />}></Route>
-        <Route path="*" element={<Module7.NotFound />}></Route>
-        <Route path="/user/:slug" element={<Module7.Slug />}></Route>
-      </Routes>
     </div>
   );
 }
