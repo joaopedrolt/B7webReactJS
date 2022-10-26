@@ -16,6 +16,8 @@ const App = () => {
       <Module4.ApiJson />
       <br />
       <Module1.ChildrenComponent><div>Children</div></Module1.ChildrenComponent>
+      <br />
+      <Module8.ReducerPractice />
     </div>
   );
 }
