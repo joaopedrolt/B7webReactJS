@@ -18,6 +18,9 @@ const App = () => {
       <Module1.ChildrenComponent><div>Children</div></Module1.ChildrenComponent>
       <br />
       <Module8.ReducerPractice />
+      <br />
+      <br />
+      <Module8.ReducerPeopleList />
     </div>
   );
 }

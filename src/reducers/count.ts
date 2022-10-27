@@ -1,11 +1,11 @@
 import { useReducer } from "react";
 
 type State = {
-    count: number
+    count: number;
 }
 
 type Action = {
-    type: string
+    type: string;
 }
 
 const inicialState: State = { count: 0 };
