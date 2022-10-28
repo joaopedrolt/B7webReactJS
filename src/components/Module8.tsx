@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import { Context } from "../contexts/Context";
 import { useCount } from "../reducers/count";
 import { usePeopleList } from "../reducers/peopleList";
@@ -31,24 +31,58 @@ export const ReducerPractice = () => {
 export const ReducerPeopleList = () => {
 
     const [people, dispatch] = usePeopleList();
+    const [inputName, setInputName] = useState('');
+    const [inputID, setInputID] = useState('');
+
+
+    const addPerson = () => {
+        dispatch({
+            type: 'add',
+            payload: {
+                name: inputName
+            }
+        })
+    }
+
+    const deletePerson = () => {
+        dispatch({
+            type: 'remove',
+            payload: {
+                id: inputID
+            }
+        })
+    }
 
     return (
-        <>
-            <h1>Pessoas</h1>
+        <fieldset className="flex flex-col border-2">
+            <legend>Pessoas</legend>
             <ul>
                 {
-                    people.map((person) => (
-                        <li>
-                            <h3>Nome: {person.name}</h3>
-                            <p>Id: {person.id}</p>
-                        </li>
-                    ))
+                    people.map((person) => {
+
+                        return (
+                            <li>
+                                <h3>Nome: {person.name} -- ID: {person.id}</h3>
+                            </li>
+                        )
+                    })
                 }
             </ul>
-            <button>Add</button>
-            <button>Remove</button>
+            <br />
+            <br />
+            <input type="text" value={inputName} onChange={(e: ChangeEvent<HTMLInputElement>) => { setInputName(e.target.value) }} placeholder="Adicionar Nome"></input>
+            <br />
+            <button onClick={addPerson}>Add</button>
+            <br />
+            <br />x 
+            <input type="text" value={inputID} onChange={(e: ChangeEvent<HTMLInputElement>) => { setInputID(e.target.value) }} placeholder="ID"></input>
+            <br />
+            <button onClick={deletePerson}>Remove</button>
+            <br />
+            <br />
             <button>Ordenar</button>
+            <br />
             <button>Resetar</button>
-        </>
+        </fieldset>
     );
 }
