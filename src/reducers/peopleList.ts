@@ -20,28 +20,29 @@ const inicialState: Person[] = [];
 
 const reducer = (state: reducerState, action: Action) => {
 
-    let newState = [...state];
+    let stateCopy = [...state];
 
     switch (action.type) {
         case 'add':
             if (action.payload?.name) {
-                newState.push({
+                stateCopy.push({
                     id: uuidv4(),
                     name: action.payload.name
                 });
             }
-            return newState;
+            return stateCopy;
         case 'remove':
             if (action.payload?.id) {
-                newState.filter(item => item.id !== action.payload?.id);
+                let newState = stateCopy.filter(item => item.id !== action.payload?.id);
+                return newState;
             }
-            return newState;
         case 'sort':
-            state.sort((a, b) => (a.name > b.name) ? 1 : -1);
-            break;
+            let sortState = stateCopy.sort((a, b) => (a.name > b.name) ? 1 : -1);
+            return sortState;
         case 'reset':
-            state = inicialState;
-            break;
+            stateCopy = inicialState;
+            console.log(stateCopy);
+            return stateCopy;
     }
 
     return state;
