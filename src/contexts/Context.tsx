@@ -1,8 +1,8 @@
 import { createContext } from "react";
 
 type ContextType = {
-    name: string,
-    age: number
+    name: string;
+    age: number;
 }
 
 const inicialState = {
