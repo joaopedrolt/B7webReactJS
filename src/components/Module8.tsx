@@ -1,5 +1,5 @@
 import { ChangeEvent, useContext, useState } from "react";
-import { Context } from "../contexts/Context";
+import { Context } from "../contexts/ContextReducer";
 import { useCount } from "../reducers/count";
 import { usePeopleList } from "../reducers/peopleList";
 
