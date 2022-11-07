@@ -1,16 +1,14 @@
 import { ChangeEvent, useContext, useState } from "react";
-import { Context } from "../contexts/Context";
+import { Context } from "../contexts/ContextReducer";
 import { useCount } from "../reducers/count";
 import { usePeopleList } from "../reducers/peopleList";
 
 export const ContextPractice = () => {
 
-    const { name } = useContext(Context);
-    const data = useContext(Context);
 
     return (
         <>
-            <div>Valores do Contexto = Nome: {name}, idade: {data.age} anos</div>
+            
         </>
     );
 }
