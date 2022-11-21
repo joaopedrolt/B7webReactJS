@@ -5,12 +5,10 @@ import { usePeopleList } from "../reducers/peopleList";
 
 export const ContextPractice = () => {
 
-    const { name } = useContext(Context);
-    const data = useContext(Context);
 
     return (
         <>
-            <div>Valores do Contexto = Nome: {name}, idade: {data.age} anos</div>
+            
         </>
     );
 }

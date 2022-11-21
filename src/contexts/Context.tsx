@@ -13,7 +13,7 @@ const inicialState = {
 export const Context = createContext<ContextType>(inicialState);
 
 type Props = {
-    children: React.ReactNode
+    children: React.ReactNode;
 }
 
 export const ContextProvider: React.FC<Props> = ({children}: Props) => {

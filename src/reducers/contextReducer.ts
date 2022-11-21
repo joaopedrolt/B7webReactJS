@@ -5,29 +5,37 @@ type User = {
     age: number;
 }
 
-type Action = {
+export type ContextInfo = {
+    user: User;
+}
+
+export type Action = {
     type: string;
     payload: {
         [key: string]: any;
     }
 }
 
-const userInicialState: User = {
-    name: 'Joao Pedro',
-    age: 20
+export const inicialState: ContextInfo = {
+    user: {
+        name: 'Joao Pedro',
+        age: 20
+    }
 };
 
-const reducer = (state: User, action: Action) => {
+export const userReducer = (state: ContextInfo, action: Action) => {
+    let a;
     switch (action.type) {
         case 'CHANGE_NAME':
-            return { ...state, name: action.payload.name };
+            a = { ...state, user: { name: action.payload.name, age: state.user.age } };
+            break;
         case 'CHANGE_AGE':
-            return { ...state, age: action.payload.age };
+            a = { ...state, user: { name: action.payload.name, age: state.user.age } }; 
+            break;
     }
 
-    return state;
-}
-
-const contextReducer = () => {
-    return useReducer(reducer, userInicialState)
+    return {
+        a,
+        dispatch: () => null
+    };
 }
