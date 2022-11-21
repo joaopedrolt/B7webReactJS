@@ -10,7 +10,7 @@ export const UseEffectForm = () => {
     const handleClick = () => {
         setNumber(Math.random);
     };
-
+    
     useEffect(() => {
         setStatus(true);
     }, [number]);
